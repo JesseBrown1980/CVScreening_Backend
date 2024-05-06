@@ -6,6 +6,7 @@ import openai
 import re
 load_dotenv()
 API_KEY = os.getenv('OPENAI_API_KEY')
+print(API_KEY)
 openai.api_key = API_KEY
 def process_cv(cv, job_description):
     """
@@ -27,7 +28,7 @@ def process_cv(cv, job_description):
         {"role": "user", "content" : f"CV: {cv_text}, Job description: {job_text}"},
         {"role": "user", "content": """Please critically evaluate the candidate's CV in relation to the job description.:
          1. Please provide a evaluation of the candidate's CV. Assign a score from 1 to 10, where 1 indicates a poor fit and 10 indicates an exceptional fit. Result type must be Score : interger value
-         2. Provide a detailed explanation of the score, highlighting specific areas where the candidate excels or falls short in relation to the job requirements."""}
+         2. Provide a detailed explanation with 2~4 sentences of the score, highlighting specific areas where the candidate excels or falls short in relation to the job requirements."""}
     ]
     try :
         response = chat_gpt(conversation)
