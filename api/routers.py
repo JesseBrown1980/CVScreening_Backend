@@ -1,9 +1,10 @@
 from flask import Blueprint, request
 from controllers.ScreeningController import process_cv
-
+from flask_cors import cross_origin
 routers = Blueprint('routers', __name__, url_prefix="/api")
 
 @routers.route("/upload", methods=['GET', 'POST'])
+@cross_origin()
 def upload_resume():
     if request.method == 'POST':
         resume_file = request.files.get('cv')

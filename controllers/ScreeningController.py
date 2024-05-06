@@ -6,7 +6,6 @@ import openai
 import re
 load_dotenv()
 API_KEY = os.getenv('OPENAI_API_KEY')
-print(API_KEY)
 openai.api_key = API_KEY
 def process_cv(cv, job_description):
     """
