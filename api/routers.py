@@ -10,4 +10,8 @@ def upload_resume():
         job_file = request.files.get('job')
         return process_cv(resume_file, job_file)
     return "false", 400
+
+@routers.route("/test", methods=['GET', 'POST'])
+def test():
+    return "test success"
         
